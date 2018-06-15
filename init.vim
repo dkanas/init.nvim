@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0rp/ale'
   Plug 'Shougo/denite.nvim'
   Plug 'Shougo/deoplete.nvim'
-  Plug 'carlitux/deoplete-ternjs'
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'nanotech/jellybeans.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
