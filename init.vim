@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdtree'
   Plug 'w0rp/ale'
-  Plug 'Shougo/denite.nvim'
   Plug 'Shougo/deoplete.nvim'
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'nanotech/jellybeans.vim'
@@ -48,6 +47,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdcommenter'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'tommcdo/vim-fubitive'
+  Plug 'tpope/vim-repeat'
 call plug#end()
 
 "mappings
