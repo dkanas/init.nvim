@@ -57,6 +57,7 @@ call plug#end()
 
 "mappings
 nnoremap <silent> <leader>/ :Files<cr> 
+nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>ce :e ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader>cr :so ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader><backspace> :bd<cr>
