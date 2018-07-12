@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'tommcdo/vim-fubitive'
   Plug 'tpope/vim-repeat'
+  Plug 'slashmili/alchemist.vim'
 call plug#end()
 
 "mappings
