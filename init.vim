@@ -27,7 +27,7 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:deoplete#enable_at_startup = 1
 let g:miniBufExplorerAutoStart = 0
 let mapleader = "\<Space>"
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
 
 "plugins
 call plug#begin('~/.vim/plugged')
