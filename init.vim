@@ -13,9 +13,11 @@ set inccommand=split
 set mouse=a
 set expandtab
 set shiftwidth=2
+set autoread
+set rtp+=~/.vim
+language en_US
 
 "variables
-let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:fzf_buffers_jump = 1
 let g:ale_linters = {'jsx': ['eslint']}
@@ -26,6 +28,7 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:deoplete#enable_at_startup = 1
 let g:miniBufExplorerAutoStart = 0
+let g:NERDTreeWinPos = "right"
 let mapleader = "\<Space>"
 let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
 
@@ -39,12 +42,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0rp/ale'
   Plug 'Shougo/deoplete.nvim'
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-  Plug 'nanotech/jellybeans.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
-  Plug 'dkanas/phosphor.vim'
-  Plug 'weynhamz/vim-plugin-minibufexpl'
-  Plug 'dkanas/vim-learning'
   Plug 'ap/vim-buftabline'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'jiangmiao/auto-pairs'
@@ -53,6 +52,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tommcdo/vim-fubitive'
   Plug 'tpope/vim-repeat'
   Plug 'slashmili/alchemist.vim'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'reewr/vim-monokai-phoenix'
+  Plug 'srcery-colors/srcery-vim'
 call plug#end()
 
 "mappings
@@ -74,7 +76,9 @@ nmap <leader>7 <Plug>BufTabLine.Go(7)
 nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
+nmap <leader><left> :wincmd h<cr>
+nmap <leader><right> :wincmd l<cr>
 nnoremap <esc> :noh<cr>
 
 "color scheme
-colorscheme phosphor
+colorscheme srcery
