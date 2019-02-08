@@ -20,7 +20,7 @@ language en_US
 "variables
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:fzf_buffers_jump = 1
-let g:ale_linters = {'jsx': ['eslint']}
+let g:ale_linters = {'jsx': ['eslint'], 'javascript': ['eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
@@ -30,7 +30,7 @@ let g:deoplete#enable_at_startup = 1
 let g:miniBufExplorerAutoStart = 0
 let g:NERDTreeWinPos = "right"
 let mapleader = "\<Space>"
-let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore-dir .git -g ""'
 
 "plugins
 call plug#begin('~/.vim/plugged')
@@ -54,7 +54,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'slashmili/alchemist.vim'
   Plug 'vim-ruby/vim-ruby'
   Plug 'reewr/vim-monokai-phoenix'
+  Plug 'elixir-editors/vim-elixir'
   Plug 'srcery-colors/srcery-vim'
+  Plug 'SirVer/ultisnips'
 call plug#end()
 
 "mappings
@@ -66,6 +68,7 @@ nnoremap <silent> <leader><backspace> :bd<cr>
 nnoremap <silent> <leader>h :bp<cr>
 nnoremap <silent> <leader>l :bn<cr>
 nnoremap <silent> <leader>t :NERDTreeToggle<cr>
+nnoremap <silent> <leader>f :NERDTreeFind<cr>
 nmap <leader>1 <Plug>BufTabLine.Go(1)
 nmap <leader>2 <Plug>BufTabLine.Go(2)
 nmap <leader>3 <Plug>BufTabLine.Go(3)
