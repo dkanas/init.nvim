@@ -15,11 +15,11 @@ set expandtab
 set shiftwidth=2
 set autoread
 set rtp+=~/.vim
+set splitbelow
 language en_US
 
 "variables
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:fzf_buffers_jump = 1
 let g:ale_linters = {'jsx': ['eslint'], 'javascript': ['eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {}
@@ -27,29 +27,23 @@ let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:deoplete#enable_at_startup = 1
-let g:miniBufExplorerAutoStart = 0
 let g:NERDTreeWinPos = "right"
 let mapleader = "\<Space>"
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore-dir .git -g ""'
+let g:airline_theme='deus'
 
 "plugins
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdtree'
   Plug 'w0rp/ale'
   Plug 'Shougo/deoplete.nvim'
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
-  Plug 'ap/vim-buftabline'
+  Plug 'chemzqm/vim-jsx-improve'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdcommenter'
   Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'tommcdo/vim-fubitive'
   Plug 'tpope/vim-repeat'
   Plug 'slashmili/alchemist.vim'
   Plug 'vim-ruby/vim-ruby'
@@ -57,31 +51,41 @@ call plug#begin('~/.vim/plugged')
   Plug 'elixir-editors/vim-elixir'
   Plug 'srcery-colors/srcery-vim'
   Plug 'SirVer/ultisnips'
+  Plug 'Shougo/denite.nvim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "mappings
-nnoremap <silent> <leader>/ :Files<cr> 
-nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>/ :Denite buffer file/rec<cr> 
+nnoremap <silent> <leader>b :Denite buffer<cr> 
+nnoremap <silent> <leader>a :DeniteProjectDir -buffer-name=grep -default-action=quickfix grep:::!<CR>
 nnoremap <silent> <leader>ce :e ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader>cr :so ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader><backspace> :bd<cr>
 nnoremap <silent> <leader>h :bp<cr>
 nnoremap <silent> <leader>l :bn<cr>
-nnoremap <silent> <leader>t :NERDTreeToggle<cr>
+nnoremap <silent> <leader>t :split<cr> :terminal<cr>
 nnoremap <silent> <leader>f :NERDTreeFind<cr>
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
 nmap <leader><left> :wincmd h<cr>
 nmap <leader><right> :wincmd l<cr>
+nmap <leader><up> :wincmd k<cr>
+nmap <leader><down> :wincmd j<cr>
 nnoremap <esc> :noh<cr>
+
+"commands
+command! -nargs=* T split | terminal <args>
+
+"denite config
+call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#map('insert', '<down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<up>', '<denite:move_to_previous_line>', 'noremap')
 
 "color scheme
 colorscheme srcery
