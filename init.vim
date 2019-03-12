@@ -59,7 +59,7 @@ call plug#end()
 "mappings
 nnoremap <silent> <leader>/ :Denite buffer file/rec<cr> 
 nnoremap <silent> <leader>b :Denite buffer<cr> 
-nnoremap <silent> <leader>a :DeniteProjectDir -buffer-name=grep -default-action=quickfix grep:::!<CR>
+nnoremap <silent> <leader>a :DeniteProjectDir -buffer-name=grep grep:::!<CR>
 nnoremap <silent> <leader>ce :e ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader>cr :so ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader><backspace> :bd<cr>
