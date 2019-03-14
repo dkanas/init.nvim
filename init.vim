@@ -86,6 +86,7 @@ call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#map('insert', '<down>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<up>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<Space><Enter>', '<denite:do_action:vsplit>', 'noremap')
 
 "color scheme
 colorscheme srcery
