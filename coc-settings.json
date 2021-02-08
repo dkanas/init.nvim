@@ -1,0 +1,8 @@
+{
+  "typescript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript",  "javascriptreact", "typescript", "typescriptreact"],
+  "list.source.grep.args": ["--smart-case"],
+  "list.source.grep.useLiteral": false,
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
+}
